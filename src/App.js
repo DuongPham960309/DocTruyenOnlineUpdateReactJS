@@ -1,23 +1,27 @@
-import Header from './Header.js';
-import Content from './Content.js';
-import Footer from './Footer.js';
-import { Provider } from 'react-redux';
-import { legacy_createStore } from 'redux';
-import data from './Data.js';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'font-awesome/css/font-awesome.min.css';
 
-const Reducer = (state = data) => {return state;}
-const store = legacy_createStore(Reducer);
+import './App.css';
+import './updatedData.js';
+import Header from './Components/Header';
+import Main from './Components/Main';
+import Aside from './Components/Aside';
+import Footer from './Components/Footer';
 
 function App() {
-    return <Provider store={store}>
+    return <>
         <Header />
-        <Content />
+        <div className="content">
+            <div className="max-width-main mx-auto">
+                <div className="d-flex flex-wrap mh-content-negative">
+                    <Main />
+                    <Aside />
+                </div>
+            </div>
+        </div>
         <Footer />
-    </Provider>
+    </>;
 }
 
 export default App;
